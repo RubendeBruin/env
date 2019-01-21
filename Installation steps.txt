@@ -1,0 +1,155 @@
+1. Download mini conda (windows 64 bit)
+
+https://conda.io/miniconda.html
+
+versin installed: miniconda3 4.5.11
+
+2. install miniconda in the following location:
+
+C:\Data\miniconda3
+
+
+
+3. start 'Anaconda Prompt' in start menu.
+
+
+Note: if you cannot find 'Anaconda prompt' run the following command in 'run' (command + r):
+
+	%windir%\System32\cmd.exe "/K" C:\Data\miniconda3\Scripts\activate.bat C:\Data\miniconda3
+
+
+	run the following command in new command window to create startmenu shortcuts:
+
+	C:\Data\miniconda3\pythonw.exe C:\Data\miniconda3\Lib\_nsis.py mkmenus	
+
+
+
+4. update conda in 'Anaconda Prompt':
+
+conda update conda 
+
+
+5. create environments folder:
+
+mkdir C:\Data\Python_environments
+
+
+6 activate environments folder:
+
+
+conda config --prepend envs_dirs C:\Data\Python_environments
+
+
+
+7. update the base environment
+
+conda-env  update  -n base  -f base.yml
+
+
+
+8. check installed environments
+
+conda info -e
+
+
+
+9. Create windows menu's
+
+C:\Data\miniconda3\pythonw.exe C:\Data\miniconda3\Lib\_nsis.py mkmenus
+
+
+
+10. create Jupyter folder:
+
+
+mkdir C:\Data\Jupyter
+
+
+
+11. Generate jupyter config file:
+
+jupyter notebook --generate-config
+
+
+
+12. Open jupyter config file using a texteditor (i.e. notepad):
+
+	command + r  ---> notepad %USERPROFILE%\.jupyter\jupyter_notebook_config.py
+
+
+Add the following three lines under the section indicated below:
+
+	## Specify what command to use to invoke a web browser when opening the notebook.
+	#  If not specified, the default browser will be determined by the `webbrowser`
+	#  standard library module, which allows setting of the BROWSER environment
+	#  variable to override it.
+	#c.NotebookApp.browser = ''
+	import webbrowser
+	webbrowser.register('chrome', None, webbrowser.GenericBrowser('C:\\Program Files (x86)\\Google\\Chrome\\Application\\Chrome.exe'))
+	c.NotebookApp.browser = 'chrome'
+
+Add the following three lines under the section indicated below:
+
+	## The directory to use for notebooks and kernels.
+	#c.NotebookApp.notebook_dir = ''
+	c.NotebookApp.notebook_dir = 'C:\Data\Jupyter'
+
+
+Save the config file.
+
+
+
+13. Modify the Jupyter shortcut
+
+
+explorer %USERPROFILE%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Anaconda3 (64-bit)
+
+
+select properties of "Jupyter Notebook'(right click)
+
+
+change target from: C:\Data\miniconda3\python.exe C:\Data\miniconda3\cwp.py C:\Data\miniconda3 C:\Data\miniconda3\python.exe C:\Data\miniconda3\Scripts\jupyter-notebook-script.py "%USERPROFILE%/"
+into: C:\Data\miniconda3\python.exe C:\Data\miniconda3\cwp.py C:\Data\miniconda3 C:\Data\miniconda3\python.exe C:\Data\miniconda3\Scripts\jupyter-notebook-script.py
+
+
+
+14. Start python programs:
+
+
+Start Menu > All Programs > Anaconda3 (64bit)
+
+
+
+
+
+
+
+
+
+
+
+Additional: verify packages are identical
+
+conda env create -f hmc_base.yml
+
+conda env export -n base > C:\Data\check_base.yml
+conda env export -n hmc_base > C:\Data\check_hmc_base.yml
+
+
+only differences are conda dependencies (see 'conda info conda'):
+
+conda-env >=2.6
+menuinst
+pycosat >=0.6.1
+pyopenssl >=16.2
+python 3.6*
+requests >=2.12.4
+ruamel_yaml >=0.11.14
+
+
+Conclusion update is successful
+
+
+activate hmc_base
+C:\Data\miniconda3\pythonw.exe C:\Data\miniconda3\Lib\_nsis.py rmmenus
+conda env remove -n hmc_base

@@ -1,0 +1,55 @@
+name: base
+dependencies:
+  - python=3.6
+  - pip=18
+  - numpy
+  - scipy
+  - xarray
+  - sympy
+  - numba
+  - pandas
+  - xlrd     # excel-reader for pandas
+  - openpyxl
+  - seaborn
+  - yaml
+  - netCDF4
+  - sqlite
+  - requests
+  - scrapy
+  - beautifulsoup4
+  - matplotlib
+  - vtk
+  - cartopy
+  - scikit-learn
+  - tensorflow
+  - keras
+  - qt
+  - nose
+  - jupyter
+  - ipython=6.*
+  - ipykernel=4.*
+  - spyder
+  - colorcet
+  - sqlalchemy
+  - opencv   # computer vision
+  - graphviz # computer graphs
+  - statsmodels    # statistical tools - from conda default channel
+  - xlsxwriter     # pandas excel output
+  - comtypes
+  - nb_conda_kernels 
+  - pydot
+  - pip:
+    - sphinx-rtd-theme
+    - pygame
+    - pymunk
+    - salabim
+    - nbextensions 
+    - astral 
+    - nbdime
+    - autopep8
+    - pyscaffold
+    - python-docx
+    - pyro4
+    - pint
+channels:
+  - defaults
