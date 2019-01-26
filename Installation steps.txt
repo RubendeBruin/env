@@ -2,7 +2,7 @@
 
 https://conda.io/miniconda.html
 
-versin installed: miniconda3 4.5.11
+version installed: miniconda3 4.5.11
 
 2. install miniconda in the following location:
 
@@ -80,9 +80,9 @@ jupyter notebook --generate-config
 Add the following three lines under the section indicated below:
 
 	## Specify what command to use to invoke a web browser when opening the notebook.
-	#  If not specified, the default browser will be determined by the `webbrowser`
-	#  standard library module, which allows setting of the BROWSER environment
-	#  variable to override it.
+	#Â  If not specified, the default browser will be determined by the `webbrowser`
+	#Â  standard library module, which allows setting of the BROWSER environment
+	#Â  variable to override it.
 	#c.NotebookApp.browser = ''
 	import webbrowser
 	webbrowser.register('chrome', None, webbrowser.GenericBrowser('C:\\Program Files (x86)\\Google\\Chrome\\Application\\Chrome.exe'))
