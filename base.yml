@@ -7,7 +7,7 @@ dependencies:
   - xarray
   - sympy
   - numba
-  - pandas
+  - pandas=0.23.4
   - xlrd     # excel-reader for pandas
   - openpyxl
   - seaborn
@@ -18,7 +18,6 @@ dependencies:
   - scrapy
   - beautifulsoup4
   - matplotlib
-  - vtk
   - cartopy
   - scikit-learn
   - tensorflow
@@ -45,11 +44,12 @@ dependencies:
     - salabim
     - nbextensions 
     - astral 
-    - nbdime
+    - nbdime==1.0.3
     - autopep8
     - pyscaffold
     - python-docx
     - pyro4
     - pint
+    - vtk
 channels:
   - defaults
